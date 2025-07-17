@@ -9,8 +9,7 @@ function BookHotel() {
       <h2>Book Hotel</h2>
       <p>Hotel ID: {id}</p>
 
-      {/* هنا هنضيف form user details + payment + booking summary */}
-      <p>هنا هيكون نموذج حجز الفندق.</p>
+      <p></p>
     </div>
   );
 }
