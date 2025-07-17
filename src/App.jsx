@@ -9,6 +9,7 @@ import MyBookings from "./pages/MyBookings/MyBookings";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import HotelDetails from "./pages/HotelDetails/HotelDetails";
 import BookHotel from "./pages/BookHotel/BookHotel";
+import Register from "./pages/Register/Register";
 
 function App() {
   return (
@@ -18,9 +19,11 @@ function App() {
       </Layout> */}
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="hotels" element={<HotelsSearch />} />
-          <Route path="login" element={<Login />} />
+          <Route index element={<Login />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/hotels" element={<HotelsSearch />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/hotels/:id" element={<HotelDetails />} />
           <Route
             path="/book-hotel/:id"
