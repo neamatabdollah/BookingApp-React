@@ -1,15 +1,15 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { logoutUser } from "../../store/userSlice";
+// import { logoutUser } from "../../store/userSlice";
 
 function Navbar() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const handleLogout = () => {
     // localStorage.removeItem("bookingUser");
-    dispatch(logoutUser());
+    // dispatch(logoutUser());
 
     navigate("/login");
   };
