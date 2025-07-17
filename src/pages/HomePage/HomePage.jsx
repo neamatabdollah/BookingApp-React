@@ -24,6 +24,9 @@ function HomePage() {
     error,
   } = useSelector((state) => state.hotels);
 
+  // get user data from register page
+  const user = useSelector((state) => state.user.user);
+
   useEffect(() => {
     dispatch(fetchBestOffers());
     dispatch(fetchRecommendedHotels());
@@ -31,17 +34,21 @@ function HomePage() {
 
   return (
     <div className="container mt-4">
+      {user && (
+        <h4 className="mb-4">
+          Welcome, <span className="text-primary">{user.name}</span>! 🎉
+        </h4>
+      )}{" "}
+
       <button className="btn btn-primary mb-4" onClick={handleSearchHotels}>
         🔍 Search Hotels
       </button>
-
       <h2>Best Offers</h2>
       <div className="d-flex flex-wrap gap-3">
         {bestOffersStatus === "loading" && <p>Loading...</p>}
         {bestOffersStatus === "succeeded" &&
           bestOffers.map((hotel) => <HotelCard key={hotel.id} hotel={hotel} />)}
       </div>
-
       <h2 className="mt-5">Recommended Hotels</h2>
       <div className="d-flex flex-wrap gap-3">
         {recommendedStatus === "loading" && <p>Loading...</p>}
@@ -50,7 +57,6 @@ function HomePage() {
             <HotelCard key={hotel.id} hotel={hotel} />
           ))}
       </div>
-
       {error && <p className="text-danger">{error}</p>}
     </div>
   );
