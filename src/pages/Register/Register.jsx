@@ -21,6 +21,7 @@ function Register() {
 
   const onSubmit = (data) => {
     dispatch(registerUser(data));
+    localStorage.setItem("bookingUser", JSON.stringify(data));
     console.log("REGISTERED:", data);
     navigate("/home");
   };
@@ -134,7 +135,7 @@ function Register() {
           <button type="submit" className="btn btn-primary">
             Register
           </button>
-          
+
           <p className="mt-3">
             Already have an account?{" "}
             <button
