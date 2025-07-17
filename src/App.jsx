@@ -10,6 +10,8 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import HotelDetails from "./pages/HotelDetails/HotelDetails";
 import BookHotel from "./pages/BookHotel/BookHotel";
 import Register from "./pages/Register/Register";
+import Explore from "./pages/Explore/Explore";
+import Support from "./pages/Support/Support";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path="/hotels" element={<HotelsSearch />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/support" element={<Support />} />
           <Route path="/hotels/:id" element={<HotelDetails />} />
           <Route
             path="/book-hotel/:id"
