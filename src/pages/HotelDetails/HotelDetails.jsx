@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../network/axios";
+import { useNavigate } from "react-router-dom";
 
 function HotelDetails() {
+  const navigate = useNavigate();
+
+  const handlePay = () => {
+    navigate(`/book-hotel/${id}`);
+  };
   const { id } = useParams();
   const [hotel, setHotel] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -45,7 +51,7 @@ function HotelDetails() {
         {hotel.pricing?.[0]?.currency} ({hotel.pricing?.[0]?.priceUnit})
       </p>
 
-      <button className="btn btn-success">Pay Now</button>
+      <button className="btn btn-success" onClick={handlePay}>Pay Now</button>
     </div>
   );
 }
