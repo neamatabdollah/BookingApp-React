@@ -5,8 +5,16 @@ import {
   fetchRecommendedHotels,
 } from "../../store/hotelSlice";
 import HotelCard from "../../components/HotelCard/HotelCard";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
+  // navigate to search page
+  const navigate = useNavigate();
+  const handleSearchHotels = () => {
+    navigate("/hotels");
+  };
+
+  /////////////////
   const dispatch = useDispatch();
   const {
     bestOffers,
@@ -23,6 +31,10 @@ function HomePage() {
 
   return (
     <div className="container mt-4">
+      <button className="btn btn-primary mb-4" onClick={handleSearchHotels}>
+        🔍 Search Hotels
+      </button>
+
       <h2>Best Offers</h2>
       <div className="d-flex flex-wrap gap-3">
         {bestOffersStatus === "loading" && <p>Loading...</p>}
