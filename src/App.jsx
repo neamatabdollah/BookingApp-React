@@ -8,6 +8,7 @@ import Login from "./pages/Login/Login";
 import MyBookings from "./pages/MyBookings/MyBookings";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import HotelDetails from "./pages/HotelDetails/HotelDetails";
+import BookHotel from "./pages/BookHotel/BookHotel";
 
 function App() {
   return (
@@ -21,6 +22,14 @@ function App() {
           <Route path="hotels" element={<HotelsSearch />} />
           <Route path="login" element={<Login />} />
           <Route path="/hotels/:id" element={<HotelDetails />} />
+          <Route
+            path="/book-hotel/:id"
+            element={
+              <ProtectedRoute>
+                <BookHotel />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="my-bookings"
             element={
