@@ -18,7 +18,6 @@ const AppRoutes = () => (
         </ProtectedRoute>
       }
     />
-    {/* Add other routes */}
   </Routes>
 );
 
