@@ -7,6 +7,7 @@ import HotelsSearch from "./pages/HotelsSearch/HotelsSearch";
 import Login from "./pages/Login/Login";
 import MyBookings from "./pages/MyBookings/MyBookings";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import HotelDetails from "./pages/HotelDetails/HotelDetails";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="hotels" element={<HotelsSearch />} />
           <Route path="login" element={<Login />} />
+          <Route path="/hotels/:id" element={<HotelDetails />} />
           <Route
             path="my-bookings"
             element={
