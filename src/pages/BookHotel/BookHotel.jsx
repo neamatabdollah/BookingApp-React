@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 // import { useSelector } from "react-redux";
 import axios from "../../network/axios";
+import Loader from "../../components/Loader/Loader";
 
 function BookHotel() {
   const { id } = useParams();
@@ -140,7 +141,7 @@ function BookHotel() {
           </button>
         </>
       ) : (
-        <p>Loading hotel data...</p>
+        <Loader />
       )}
     </div>
   );

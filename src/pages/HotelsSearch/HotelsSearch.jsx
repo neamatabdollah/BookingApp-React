@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHotels } from "../../store/hotelSlice";
 import HotelCard from "../../components/HotelCard/HotelCard";
+import Loader from "../../components/Loader/Loader";
 
 const countries = [
   { label: "United States", value: "US" },
@@ -59,7 +60,7 @@ function HotelsSearch() {
       </select>
 
       {/* Hotels List */}
-      {status === "loading" && <p>Loading...</p>}
+      {status === "loading" && <Loader/>}
       {status === "failed" && <p>{error}</p>}
       {status === "succeeded" && filteredHotels.length === 0 && (
         <p>No results found.</p>
