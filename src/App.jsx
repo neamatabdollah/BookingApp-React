@@ -13,6 +13,8 @@ import Register from "./pages/Register/Register";
 import Explore from "./pages/Explore/Explore";
 import Support from "./pages/Support/Support";
 import NotFound from "./pages/NotFound/NotFound";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -49,6 +51,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <ToastContainer position="top-right" autoClose={2000} />
     </BrowserRouter>
   );
 }

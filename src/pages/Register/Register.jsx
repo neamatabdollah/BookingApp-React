@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../store/userSlice";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Register() {
   const dispatch = useDispatch();
@@ -20,9 +21,17 @@ function Register() {
   const password = watch("password");
 
   const onSubmit = (data) => {
+    const storedUser = JSON.parse(localStorage.getItem("bookingUser"));
+
+    if (storedUser && storedUser.email === data.email) {
+      toast.error("This email is already registered!");
+      return;
+    }
+    
     dispatch(registerUser(data));
     localStorage.setItem("bookingUser", JSON.stringify(data));
-    console.log("REGISTERED:", data);
+    // console.log("REGISTERED:", data);
+    toast.success("Registration successful! Welcome 👋");
     navigate("/home");
   };
 

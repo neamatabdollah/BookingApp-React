@@ -32,6 +32,11 @@ function Sidebar() {
             Support
           </Link>
         </li>
+        <li className="nav-item mb-2">
+          <Link className="nav-link" to="/hotels">
+            Search Hotels
+          </Link>
+        </li>
 
         {!user && (
           <li className="nav-item mt-4">

@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 // import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Login() {
   // const { user } = useSelector((state) => state.user);
@@ -16,15 +17,22 @@ function Login() {
   const onSubmit = (data) => {
     const savedUser = JSON.parse(localStorage.getItem("bookingUser"));
 
+    if (!savedUser) {
+      toast.error("No user registered yet!");
+      return;
+    }
+
     if (
       savedUser &&
       savedUser.email === data.email &&
       savedUser.password === data.password
     ) {
-      console.log("Login Success!");
+      // console.log("Login Success!");
+      toast.success(`Welcome back, ${savedUser.name}! 👋`);
       navigate("/home");
     } else {
-      alert("Invalid credentials or not registered yet!");
+      // alert("Invalid credentials or not registered yet!");
+      toast.error("No user registered yet!");
     }
   };
   return (
