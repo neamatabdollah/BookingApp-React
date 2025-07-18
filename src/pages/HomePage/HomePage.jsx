@@ -6,6 +6,7 @@ import {
 } from "../../store/hotelSlice";
 import HotelCard from "../../components/HotelCard/HotelCard";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
 
 function HomePage() {
   // navigate to search page
@@ -45,13 +46,13 @@ function HomePage() {
       </button>
       <h2>Best Offers</h2>
       <div className="d-flex flex-wrap gap-3">
-        {bestOffersStatus === "loading" && <p>Loading...</p>}
+        {bestOffersStatus === "loading" && <Loader/>}
         {bestOffersStatus === "succeeded" &&
           bestOffers.map((hotel) => <HotelCard key={hotel.id} hotel={hotel} />)}
       </div>
       <h2 className="mt-5">Recommended Hotels</h2>
       <div className="d-flex flex-wrap gap-3">
-        {recommendedStatus === "loading" && <p>Loading...</p>}
+        {recommendedStatus === "loading" && <Loader/>}
         {recommendedStatus === "succeeded" &&
           recommendedHotels.map((hotel) => (
             <HotelCard key={hotel.id} hotel={hotel} />

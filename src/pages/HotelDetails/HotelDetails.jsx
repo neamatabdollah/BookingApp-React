@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../network/axios";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
 
 function HotelDetails() {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ function HotelDetails() {
     fetchHotel();
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
   if (!hotel) return null;
 
@@ -51,7 +52,9 @@ function HotelDetails() {
         {hotel.pricing?.[0]?.currency} ({hotel.pricing?.[0]?.priceUnit})
       </p>
 
-      <button className="btn btn-success" onClick={handlePay}>Pay Now</button>
+      <button className="btn btn-success" onClick={handlePay}>
+        Pay Now
+      </button>
     </div>
   );
 }
