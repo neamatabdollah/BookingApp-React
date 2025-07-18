@@ -12,6 +12,7 @@ import BookHotel from "./pages/BookHotel/BookHotel";
 import Register from "./pages/Register/Register";
 import Explore from "./pages/Explore/Explore";
 import Support from "./pages/Support/Support";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
             }
           />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
